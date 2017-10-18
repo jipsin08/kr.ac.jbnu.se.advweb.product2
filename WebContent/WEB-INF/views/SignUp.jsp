@@ -42,7 +42,6 @@ function checkID()
 }
 	
 	
-		
 	
 
 
@@ -163,6 +162,7 @@ function checkID()
 	{
 		$('#userInfo').hide();
 	}
-</script>         
+</script>   
+    
 </body>
 </html>

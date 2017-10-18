@@ -11,7 +11,7 @@ public class MySQLConnUtils {
 		String hostName = "localhost";
 		String dbName = "simpleweb";
 		String userName = "root";
-		String password = "0618";
+		String password = "root";
 		return getMySQLConnection(hostName, dbName, userName, password);
 	}
 
