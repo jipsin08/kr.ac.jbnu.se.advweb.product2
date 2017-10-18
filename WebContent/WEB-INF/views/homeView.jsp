@@ -18,7 +18,7 @@
 	<br>
 	<b>It includes the following functions:</b>
 	<ul>
-		<li>Login</li>
+		<li>Logindd</li>
 		<li>Storing user information in cookies</li>
 		<li>Product List</li>
 		<li>Create Product</li>
