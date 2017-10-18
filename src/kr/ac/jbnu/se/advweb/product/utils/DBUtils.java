@@ -15,7 +15,7 @@ public class DBUtils {
 	public static UserAccount findUser(Connection conn, //
 			String userName, String password) throws SQLException {
 
-		String sql = "Select a.User_Name, a.Password, a.Gender from User_Account a " //
+		String sql = "Select * from User_Account a " //
 				+ " where a.User_Name = ? and a.password= ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -24,11 +24,9 @@ public class DBUtils {
 		ResultSet rs = pstm.executeQuery();
 
 		if (rs.next()) {
-			String gender = rs.getString("Gender");
-			UserAccount user = new UserAccount();
+			UserAccount user = new UserAccount(null, null, null, null, null, null, null);
 			user.setUserName(userName);
 			user.setPassword(password);
-			user.setGender(gender);
 			return user;
 		}
 		return null;
@@ -36,7 +34,7 @@ public class DBUtils {
 
 	public static UserAccount findUser(Connection conn, String userName) throws SQLException {
 
-		String sql = "Select a.User_Name, a.Password, a.Gender from User_Account a "//
+		String sql = "Select * from User_Account a "//
 				+ " where a.User_Name = ? ";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
@@ -46,15 +44,32 @@ public class DBUtils {
 
 		if (rs.next()) {
 			String password = rs.getString("Password");
-			String gender = rs.getString("Gender");
-			UserAccount user = new UserAccount();
+			UserAccount user = new UserAccount(null, null, null, null, null, null, null);
 			user.setUserName(userName);
 			user.setPassword(password);
-			user.setGender(gender);
 			return user;
 		}
 		return null;
 	}
+	
+	public static String findID(Connection conn, String userName) throws SQLException {
+
+		String sql = "Select a.userName from User_Account a where a.User_Name = ?";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		pstm.setString(1, userName);
+
+		ResultSet rs = pstm.executeQuery();
+
+		while (rs.next()) {
+			String name = rs.getString("userName");
+			if(name == userName){
+				return "PASS";
+			}	
+		}
+		return "FALSE";
+	}
+	
 
 	public static List<Product> queryProduct(Connection conn) throws SQLException {
 		String sql = "Select a.Code, a.Name, a.Price from Product a ";
@@ -112,6 +127,22 @@ public class DBUtils {
 		pstm.setString(1, product.getCode());
 		pstm.setString(2, product.getName());
 		pstm.setFloat(3, product.getPrice());
+
+		pstm.executeUpdate();
+	}
+	
+	public static void insertUser(Connection conn, UserAccount userAccount) throws SQLException {
+		String sql = "Insert into User_account(User_name, Password, Name, Department, Answer, Address, phone) values (?,?,?,?,?,?,?)";
+
+		PreparedStatement pstm = conn.prepareStatement(sql);
+
+		pstm.setString(1, userAccount.getUserName());
+		pstm.setString(2, userAccount.getPassword());
+		pstm.setString(3, userAccount.getName());
+		pstm.setString(4, userAccount.getDepartment());
+		pstm.setString(5, userAccount.getAnswer());
+		pstm.setString(6, userAccount.getAddress());
+		pstm.setString(7, userAccount.getPhone());
 
 		pstm.executeUpdate();
 	}

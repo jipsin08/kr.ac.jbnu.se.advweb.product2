@@ -34,7 +34,7 @@
 
 	User Name:
 	<b>${user.userName}</b>
-	<br /> Gender: ${user.gender }
+	<br /> 
 	<br />
 
 	<a href="javascript:void(0);" onclick="javascript:showUserInfo();">Show More</a>

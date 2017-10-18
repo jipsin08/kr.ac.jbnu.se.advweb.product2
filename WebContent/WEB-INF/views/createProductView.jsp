@@ -14,7 +14,7 @@
 	<jsp:include page="_menu.jsp"></jsp:include>
 
 	<h3>Create Product</h3>
-
+	
 	<p style="color: red;">${errorString}</p>
 
 	<form method="POST"

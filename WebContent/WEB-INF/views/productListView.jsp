@@ -13,7 +13,7 @@
     <jsp:include page="_menu.jsp"></jsp:include>
  
     <h3>Product List</h3>
- 
+ 	
     <p style="color: red;">${errorString}</p>
  
     <table border="1" cellpadding="5" cellspacing="1" >
