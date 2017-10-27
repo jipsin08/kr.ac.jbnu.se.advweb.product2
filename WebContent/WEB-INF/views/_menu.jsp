@@ -18,6 +18,16 @@
 			$('#SignUp').html(data);
 		});
 	}
+	
+	
+// 	function showRegistrationInfo(){
+// 	    $.get("${pageContext.request.contextPath}/Registration",
+// 	    		{
+	    	
+// 	           }, function(data) {
+// 	        	$('#Registration').html(data);
+// 	     });
+// 	}
 </script>
 
 
@@ -34,6 +44,10 @@
    <a href="${pageContext.request.contextPath}/login">Login</a>
    | 
    <a href="javascript:void(0);" onclick="javascript:showUserInfo();">Sign Up</a>
+   |
+   <a href="${pageContext.request.contextPath}/Registration">Book Registration</a>
+<!--    | -->
+<!--    <a href="javascript:void(0);" onclick="javascript:showRegistrationInfo();">Book Registration</a> -->
     
 </div> 
 <div style="border:1px solid white; float:right; background-color:white; width:500px" ></div>
