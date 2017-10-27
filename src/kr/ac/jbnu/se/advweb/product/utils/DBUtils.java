@@ -79,30 +79,30 @@ public class DBUtils {
 		ResultSet rs = pstm.executeQuery();
 		List<Product> list = new ArrayList<Product>();
 		while (rs.next()) {
-			String code = rs.getString("Code");
-			String name = rs.getString("Name");
-			float price = rs.getFloat("Price");
+			String pCode = rs.getString("Code");
+			String pName = rs.getString("Name");
+			float pPrice = rs.getFloat("Price");
 			Product product = new Product();
-			product.setCode(code);
-			product.setName(name);
-			product.setPrice(price);
+			product.setpCode(pCode);
+			product.setpName(pName);
+			product.setpPrice(pPrice);
 			list.add(product);
 		}
 		return list;
 	}
 
-	public static Product findProduct(Connection conn, String code) throws SQLException {
+	public static Product findProduct(Connection conn, String pCode) throws SQLException {
 		String sql = "Select a.Code, a.Name, a.Price from Product a where a.Code=?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
-		pstm.setString(1, code);
+		pstm.setString(1, pCode);
 
 		ResultSet rs = pstm.executeQuery();
 
 		while (rs.next()) {
-			String name = rs.getString("Name");
-			float price = rs.getFloat("Price");
-			Product product = new Product(code, name, price);
+			String pName = rs.getString("Name");
+			float pPrice = rs.getFloat("Price");
+			Product product = new Product(pCode, pName, pPrice);
 			return product;
 		}
 		return null;
@@ -113,9 +113,9 @@ public class DBUtils {
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-		pstm.setString(1, product.getName());
-		pstm.setFloat(2, product.getPrice());
-		pstm.setString(3, product.getCode());
+		pstm.setString(1, product.getpName());
+		pstm.setFloat(2, product.getpPrice());
+		pstm.setString(3, product.getpCode());
 		pstm.executeUpdate();
 	}
 
@@ -124,9 +124,9 @@ public class DBUtils {
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-		pstm.setString(1, product.getCode());
-		pstm.setString(2, product.getName());
-		pstm.setFloat(3, product.getPrice());
+		pstm.setString(1, product.getpCode());
+		pstm.setString(2, product.getpName());
+		pstm.setFloat(3, product.getpPrice());
 
 		pstm.executeUpdate();
 	}
@@ -147,12 +147,12 @@ public class DBUtils {
 		pstm.executeUpdate();
 	}
 
-	public static void deleteProduct(Connection conn, String code) throws SQLException {
+	public static void deleteProduct(Connection conn, String pCode) throws SQLException {
 		String sql = "Delete From Product where Code= ?";
 
 		PreparedStatement pstm = conn.prepareStatement(sql);
 
-		pstm.setString(1, code);
+		pstm.setString(1, pCode);
 
 		pstm.executeUpdate();
 	}
