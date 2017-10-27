@@ -1,79 +1,83 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration</title>
 
-<script lang = "javascript">
-$(document).ready(function(){
-    // »óÇ° µî·Ï À¯È¿¼º°Ë»ç
-    $("#addBtn").click(function(){
-        var productName = $("#productName").val();
-        var productPrice = $("#productPrice").val();
-        var productDesc = $("#productDesc").val();
-        var productPhoto = $("#productPhoto").val();
+<script lang="javascript">
+	$(document).ready(function() {
+		// ìƒí’ˆ ë“±ë¡ ìœ íš¨ì„±ê²€ì‚¬
+		$("#addBtn").click(function() {
+			var productName = $("#productName").val();
+			var productPrice = $("#productPrice").val();
+			var productDesc = $("#productDesc").val();
 
-        if(productName == "") {
-            alert("»óÇ°¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
-            productName.foucs();
-        } else if (productPrice == "") {
-            alert("»óÇ° °¡°İÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
-            productPrice.focus();
-        } else if (productDesc == "") {
-            alert("»óÇ° ¼³¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
-            productDesc.focus();
-        } else if (productPhoto == "") {
-            alert("»óÇ° »çÁøÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
-            productPhoto.focus();
-        }
-        // »óÇ° Á¤º¸ Àü¼Û
-        document.form1.action = "${path}/shop/product/insert.do";
-        document.form1.submit();
-    });
-    // »óÇ° ¸ñ·ÏÀÌµ¿
-    $("#listBtn").click(function(){
-        location.href='${path}/shop/product/list.do';
-    });
-});
-
+			if (productName == "") {
+				alert("ìƒí’ˆëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
+				productName.foucs();
+			} else if (productPrice == "") {
+				alert("ìƒí’ˆ ê°€ê²©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
+				productPrice.focus();
+			} else if (productDesc == "") {
+				alert("ìƒí’ˆ ì„¤ëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
+				productDesc.focus();
+			} else if (productPhoto == "") {
+				alert("ìƒí’ˆ ì‚¬ì§„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
+				productPhoto.focus();
+			}
+			// ìƒí’ˆ ì •ë³´ ì „ì†¡
+			document.form1.action = "${path}/shop/product/insert.do";
+			document.form1.submit();
+		});
+		// ìƒí’ˆ ëª©ë¡ì´ë™
+		$("#listBtn").click(function() {
+			location.href = '${path}/shop/product/list.do';
+		});
+	});
 </script>
 </head>
+
 <body>
+
+	<jsp:include page="_header.jsp"></jsp:include>
+	<jsp:include page="_menu.jsp"></jsp:include>
 
 	<h3>Registration Page</h3>
 
-<form id="form1" name="form1" enctype="multipart/form-data" method="post">
-    <table border="1">
-        <tr>
-            <td>»óÇ°¸í</td>
-            <td><input type="text" name="productName" id="productName"></td>
-        </tr>
-        <tr>
-            <td>°¡°İ</td>
-            <td><input type="text" name="productPrice" id="productPrice"></td>
-        </tr>
-        <tr>
-            <td>»óÇ°¼³¸í</td>
-            <td><textarea rows="5" cols="60" name="productDesc" id="productDesc"></textarea></td>
-        </tr>
-        <tr>
-            <td>»óÇ°ÀÌ¹ÌÁö</td>
-            <td><input type="file" name="productPhoto" id="productPhoto"></td>
-        </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <input type="button" value="µî·Ï" id="addBtn">
-                <input type="button" value="¸ñ·Ï" id="listBtn">
-            </td>
-        </tr> 
-    </table>
-</form>
+	<form id="form1" name="form1" enctype="multipart/form-data"
+		method="post">
+		<table border="1">
+			<tr>
+				<td>ìƒí’ˆëª…</td>
+				<td><input type="text" name="productName" id="productName"></td>
+			</tr>
+			<tr>
+				<td>ê°€ê²©</td>
+				<td><input type="text" name="productPrice" id="productPrice"></td>
+			</tr>
+			<tr>
+				<td>ìƒí’ˆì„¤ëª…</td>
+				<td><textarea rows="5" cols="60" name="productDesc"
+						id="productDesc"></textarea></td>
+			</tr>
+			<tr>
+				<td>ìƒí’ˆì´ë¯¸ì§€</td>
+				<td><input type="file" name="productPhoto" id="productPhoto"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button" value="ë“±ë¡"
+					id="addBtn"> <input type="button" value="ëª©ë¡" id="listBtn">
+				</td>
+			</tr>
+		</table>
+	</form>
 
 
 	<jsp:include page="_footer.jsp"></jsp:include>
-	 <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="resource/bootstrap/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="resource/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>
