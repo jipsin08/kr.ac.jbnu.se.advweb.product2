@@ -1,40 +1,40 @@
 package kr.ac.jbnu.se.advweb.product.model;
 
 public class Product {
-	private String code;
-	private String name;
-	private float price;
+	private String pCode;
+	private String pName;
+	private float pPrice;
 
 	public Product() {
 	}
 
-	public Product(String code, String name, float price) {
-		this.code = code;
-		this.name = name;
-		this.price = price;
+	public Product(String pCode, String pName, float pPrice) {
+		this.pCode = pCode;
+		this.pName = pName;
+		this.pPrice = pPrice;
 	}
 
-	public String getCode() {
-		return code;
+	public String getpCode() {
+		return pCode;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setpCode(String pCode) {
+		this.pCode = pCode;
 	}
 
-	public String getName() {
-		return name;
+	public String getpName() {
+		return pName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setpName(String pName) {
+		this.pName = pName;
 	}
 
-	public float getPrice() {
-		return price;
+	public float getpPrice() {
+		return pPrice;
 	}
 
-	public void setPrice(float price) {
-		this.price = price;
+	public void setpPrice(float pPrice) {
+		this.pPrice = pPrice;
 	}
 }
